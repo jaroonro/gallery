@@ -34,7 +34,7 @@
 
 }
 .img:hover,.cover:hover{
-transform: scale(1.06);
+    transform: scale(1.06);
 }
 #add {
 opacity: 0.5;
@@ -42,4 +42,22 @@ opacity: 0.5;
 h4 {
     position: absolute;
     bottom: 0;
+}
+.del-button{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: calc(10% - 20px);
+    left:auto;
+}
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+.del-button:hover{
+    animation: tilt-shaking 0.3s infinite;
+    
 }

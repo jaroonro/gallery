@@ -45,4 +45,19 @@ export function addBlock(newBlock){
 export function getBlocks(){
     return blocks;
 }
+export function deleteBlock(title,url){
+    console.log("deleting", title , url)
+    const delIndex = blocks.findIndex(block => {
+        return block.title === title &&
+        block.thumbnailUrl === url;
+    });
+    const ublock = [...blocks];
+    if(delIndex!== -1){
+    
+    ublock.splice(delIndex, 1);
+    }
+    console.log(blocks);
+    blocks = [...ublock];
+    return ublock;
+}
 export default blocks;

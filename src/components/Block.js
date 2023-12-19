@@ -1,8 +1,9 @@
+import { AiFillCloseSquare } from "react-icons/ai";
 import "./Block.css"
 import { useState } from 'react';
 
 function Block(props){
-    const {block,onBlockClick} = props;
+    const {block,onBlockClick,del} = props;
     const [isShow, setShow] = useState(false);
     function toggleDescription(){
         setShow(!isShow);
@@ -17,6 +18,9 @@ function Block(props){
         )
         return(
             <div className='Block'>
+                <div className="del-button">
+                    <AiFillCloseSquare style={{ color: "red" }} onClick={() => del(block.title, block.thumbnailUrl)}/>
+                </div>
                 <img className='cover' alt={block.title} src={block.thumbnailUrl} onClick={toggleDescription}/>
                 <div className='description' onClick={toggleDescription}>
                     <h3>Description:</h3>

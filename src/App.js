@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Block from './components/Block'
 import SearchBar from './components/SearchBar';
-import { addBlock } from './data/blocks'
+import { addBlock, deleteBlock } from './data/blocks'
 import { getBlocks } from './data/blocks';
 import Banner from './components/Banner'
 import banners from './data/banners';
@@ -17,7 +17,7 @@ function App() {
     return (block.title.includes(searchText)||block.description.includes(searchText)||block.description.includes('just an add block'));
   })
   const blockElements = filteredBlocks.map((block,index)=>{
-    return <Block key={index} block = {block} onBlockClick={onBlockClick}/>
+    return <Block key={index} block = {block} onBlockClick={onBlockClick} del={onDeleteClick}/>
   });
 
   function onAddButtonClick(){
@@ -49,7 +49,10 @@ function App() {
   function onBlockClick(){
     setModalVisibility(true);
   }
-  
+  function onDeleteClick(title,url){
+    console.log("before del");
+    setBlocks(deleteBlock(title,url));
+  }
   return (
     <div className="App">
       <header className="App-header">
