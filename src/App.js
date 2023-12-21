@@ -65,7 +65,7 @@ function App() {
         <Banner banners={banners} setSearchText={setSearchText}/>
         <div className='App-grid'>
           {blockElements}
-          <Modal isVisible={isModalVisible} onButtonClick={onAddButtonClick} file={file} setFile={setFile} warningText={warningText}/>
+          <Modal isVisible={isModalVisible} setVisible={setModalVisibility} onButtonClick={onAddButtonClick} file={file} setFile={setFile} warningText={warningText}/>
         </div>
       
       </body>

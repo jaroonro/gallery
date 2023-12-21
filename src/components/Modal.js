@@ -1,15 +1,22 @@
 import "./Modal.css"
 import FileUpload from "./FileUpload";
 function Modal(props){
-    const {isVisible,onButtonClick,file,setFile,warningText} = props;
+    const {isVisible,onButtonClick,file,setFile,warningText,setVisible} = props;
+    const handleContentClick = (e) => {
+        // Stop event propagation to prevent background click from activating
+        e.stopPropagation();
+      };
     if(isVisible===false)
     return(
     null
     )
+
     return(
         <div className='modal' style={{display: "block"}}>
-            <div className='modal-bg'>
-                <div className='modal-content'>
+            <div className='modal-bg' onClick={()=>{
+                if(isVisible)setVisible(false);
+            }}>
+                <div className='modal-content' onClick={handleContentClick}>
                     <p className="warning">{warningText}</p>
                     <FileUpload file={file} setFile={setFile}/>
                     <input type="text" placeholder="image URL pls" className="inputUrl"/>
