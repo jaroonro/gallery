@@ -16,8 +16,8 @@ function App() {
   const filteredBlocks = blocks.filter((block)=>{
     return (block.title.includes(searchText)||block.description.includes(searchText)||block.description.includes('just an add block'));
   })
-  const blockElements = filteredBlocks.map((block)=>{
-    return <Block key={block.thumbnailUrl+block.description+block.title} block = {block} onBlockClick={onBlockClick} del={onDeleteClick}/>
+  const blockElements = filteredBlocks.map((block,index)=>{
+    return <Block key={index} block = {block} onBlockClick={onBlockClick} del={onDeleteClick}/>
   });
 
   function onAddButtonClick(){
